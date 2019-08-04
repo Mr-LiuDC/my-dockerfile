@@ -59,8 +59,10 @@ RUN     rm -rf /var/cache/apk/* \
         && rm -rf /tmp/* \
         && addgroup -S nginx \
         && adduser -D -S -h /var/cache/nginx -s /sbin/nologin -G nginx nginx \
-#        && echo "https://mirrors.aliyun.com/alpine/v3.9/main" > /etc/apk/repositories \
-#        && echo "https://mirrors.aliyun.com/alpine/v3.9/community" >> /etc/apk/repositories \
+# change the apk resource if need
+#        && echo "https://mirrors.aliyun.com/alpine/latest-stable/main" > /etc/apk/repositories \
+#        && echo "https://mirrors.aliyun.com/alpine/latest-stable/community" >> /etc/apk/repositories \
+#
         && apk update upgrade \
 # install make dependence
         && apk add --no-cache --virtual .build-deps \
